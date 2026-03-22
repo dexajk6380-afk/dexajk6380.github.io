@@ -2,81 +2,82 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<title>My Bio</title>
+<title>Novara</title>
+
+<!-- ฟอนต์นุ่ม ไทย + อังกฤษ -->
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 body {
   margin: 0;
-  font-family: sans-serif;
-  background: linear-gradient(135deg, #0ea5e9, #020617);
-  color: white;
-}
-
-/* layout */
-.container {
+  font-family: 'Poppins','Kanit',sans-serif;
+  background: linear-gradient(135deg, #e0f2fe, #0ea5e9);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  gap: 40px;
+  color: #0f172a;
 }
 
-/* left text */
-.left {
-  max-width: 300px;
-}
-
-.left h1 {
-  font-size: 40px;
-  color: #7dd3fc;
-}
-
-.left p {
-  opacity: 0.8;
-}
-
-/* right card */
+/* card */
 .card {
-  background: rgba(255,255,255,0.05);
+  background: white;
   padding: 30px;
   border-radius: 25px;
-  backdrop-filter: blur(15px);
-  text-align: center;
   width: 280px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+
+  /* animation ตอนโหลด */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* profile */
 .profile {
-  width: 140px;
-  height: 140px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #38bdf8;
+  margin-bottom: 10px;
 }
 
-/* search bar */
-.search {
-  margin: 15px 0;
-  padding: 10px;
-  border-radius: 20px;
-  background: #0f172a;
+/* name */
+h1 {
+  margin: 10px 0 5px;
+  font-weight: 500;
 }
 
-/* buttons */
+p {
+  margin: 5px 0;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* link */
 .btn {
   display: block;
   margin: 10px 0;
   padding: 10px;
   border-radius: 12px;
-  background: #0ea5e9;
-  color: white;
   text-decoration: none;
+  background: #e0f2fe;
+  color: #0369a1;
   transition: 0.2s;
 }
 
+/* hover animation */
 .btn:hover {
-  background: #38bdf8;
-  transform: scale(1.05);
+  background: #bae6fd;
+  transform: translateY(-2px);
 }
 
 </style>
@@ -84,28 +85,15 @@ body {
 
 <body>
 
-<div class="container">
+<div class="card">
+  <img src="https://via.placeholder.com/150" class="profile">
 
-  <!-- ซ้าย -->
-  <div class="left">
-    <h1>Novara</h1>
-    <p>Pngtuber</p>
+  <h1>Novara</h1>
+  <p>Pngtuber</p>
 
-    <p>• รับงาน / ติดต่อ</p>
-    <p>• รายละเอียดเพิ่มเติม</p>
-  </div>
-
-  <!-- ขวา -->
-  <div class="card">
-    <img src="https://innovative-maroon-3xtwwexsdf.edgeone.app/ไม่มีชื่อ%20176_20260323003221.png" class="profile">
-
-    <div class="search">yourwebsite.com</div>
-
-    <a href="https://youtube.com/@novaralab?si=Yg0db8dMwRCfESrn" class="btn">YouTube</a>
-    <a href="https://www.tiktok.com/@novara.exe?_r=1&_t=ZS-94uI2tFz9g9" class="btn">Tiktok</a>
-    <a href="https://discord.gg/5FspE7sgYd" class="btn">Discord</a>
-  </div>
-
+  <a href="#" class="btn">YouTube</a>
+  <a href="#" class="btn">Tiktok</a>
+  <a href="#" class="btn">Discord</a>
 </div>
 
 </body>
