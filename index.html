@@ -2,82 +2,108 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<title>Novara</title>
+<title>My Bio</title>
 
-<!-- ฟอนต์นุ่ม ไทย + อังกฤษ -->
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 body {
   margin: 0;
   font-family: 'Poppins','Kanit',sans-serif;
-  background: linear-gradient(135deg, #e0f2fe, #0ea5e9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  color: #0f172a;
+  background: #eaf4fb;
+  color: #1e293b;
 }
 
-/* card */
-.card {
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.box {
   background: white;
-  padding: 30px;
-  border-radius: 25px;
-  width: 280px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-
-  /* animation ตอนโหลด */
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 0.8s ease forwards;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* ปุ่มลิงก์ */
+.categories {
+  display: flex;
+  gap: 10px;
+}
+
+.cat {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border-radius: 15px;
+  background: #e0f2fe;
+  text-decoration: none;
+  color: #0369a1;
+  transition: 0.2s;
+}
+.cat:hover {
+  background: #bae6fd;
+}
+
+/* grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 15px;
+}
+
+.item {
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.item img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+}
+
+.item:hover {
+  transform: scale(1.05);
 }
 
 /* profile */
 .profile {
-  width: 110px;
-  height: 110px;
+  text-align: center;
+}
+.profile img {
+  width: 140px;
   border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 10px;
 }
 
-/* name */
-h1 {
-  margin: 10px 0 5px;
-  font-weight: 500;
+/* modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
 }
 
-p {
-  margin: 5px 0;
-  font-size: 14px;
-  opacity: 0.7;
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 300px;
 }
 
-/* link */
-.btn {
-  display: block;
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 12px;
-  text-decoration: none;
-  background: #e0f2fe;
-  color: #0369a1;
-  transition: 0.2s;
-}
-
-/* hover animation */
-.btn:hover {
-  background: #bae6fd;
-  transform: translateY(-2px);
+.modal-content img {
+  width: 100%;
+  border-radius: 10px;
 }
 
 </style>
@@ -85,16 +111,87 @@ p {
 
 <body>
 
-<div class="card">
-  <img src="https://via.placeholder.com/150" class="profile">
+<div class="container">
 
-  <h1>Novara</h1>
-  <p>Pngtuber</p>
+  <!-- ซ้าย -->
+  <div>
 
-  <a href="#" class="btn">YouTube</a>
-  <a href="#" class="btn">Tiktok</a>
-  <a href="#" class="btn">Discord</a>
+    <!-- ลิงก์ -->
+    <div class="categories">
+      <a href="https://youtube.com" class="cat">YouTube</a>
+      <a href="https://tiktok.com" class="cat">TikTok</a>
+      <a href="https://discord.com" class="cat">Discord</a>
+    </div>
+
+    <!-- portfolio -->
+    <div class="box">
+      <b>Portfolio</b>
+      <div class="grid">
+
+        <div class="item" onclick="openModal('img1.jpg','งานวาด 1','รายละเอียดงาน')">
+          <img src="img1.jpg">
+        </div>
+
+        <div class="item" onclick="openModal('img2.jpg','งานวาด 2','รายละเอียดงาน')">
+          <img src="img2.jpg">
+        </div>
+
+        <div class="item" onclick="openModal('img3.jpg','งานวาด 3','รายละเอียดงาน')">
+          <img src="img3.jpg">
+        </div>
+
+        <div class="item" onclick="openModal('img4.jpg','งานวาด 4','รายละเอียดงาน')">
+          <img src="img4.jpg">
+        </div>
+
+        <div class="item" onclick="openModal('img5.jpg','งานวาด 5','รายละเอียดงาน')">
+          <img src="img5.jpg">
+        </div>
+
+        <div class="item" onclick="openModal('img6.jpg','งานวาด 6','รายละเอียดงาน')">
+          <img src="img6.jpg">
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ขวา -->
+  <div class="box profile">
+    <img src="profile.jpg">
+    <h3>Name</h3>
+    <p>คำอธิบายสั้น ๆ</p>
+
+    <div class="box">
+      <b>วิธีสั่งงาน</b>
+      <p>พิมพ์รายละเอียด</p>
+    </div>
+  </div>
+
 </div>
+
+<!-- modal -->
+<div class="modal" id="modal" onclick="closeModal()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <img id="modalImg">
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+  </div>
+</div>
+
+<script>
+function openModal(img, title, desc) {
+  document.getElementById("modal").style.display = "flex";
+  document.getElementById("modalImg").src = img;
+  document.getElementById("modalTitle").innerText = title;
+  document.getElementById("modalDesc").innerText = desc;
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+</script>
 
 </body>
 </html>
