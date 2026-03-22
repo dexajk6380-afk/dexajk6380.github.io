@@ -2,110 +2,143 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<title>My Bio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400&family=Itim&display=swap" rel="stylesheet">
 
 <style>
 body {
   margin: 0;
-  font-family: 'Poppins','Kanit',sans-serif;
-  background: #eaf4fb;
-  color: #1e293b;
+  background: #dfeaf3;
+  font-family: 'Itim','Kanit',sans-serif;
+  color: #2b3a4a;
 }
 
+/* layout */
 .container {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 20px;
-  padding: 20px;
+  gap: 30px;
+  padding: 40px;
 }
 
+/* กล่อง */
 .box {
-  background: white;
-  border-radius: 20px;
+  background: #f8fbff;
+  border-radius: 25px;
+  border: 2px solid #9fbad0;
   padding: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-/* ปุ่มลิงก์ */
-.categories {
+/* หัว */
+.header {
+  font-size: 32px;
+  padding: 20px;
+}
+
+/* ปุ่ม 3 อัน */
+.social {
   display: flex;
-  gap: 10px;
+  gap: 20px;
+  margin-top: 20px;
 }
 
-.cat {
+.social-box {
   flex: 1;
+  background: #f8fbff;
+  border-radius: 20px;
+  border: 2px solid #9fbad0;
+  padding: 15px;
   text-align: center;
-  padding: 10px;
-  border-radius: 15px;
-  background: #e0f2fe;
-  text-decoration: none;
-  color: #0369a1;
+  cursor: pointer;
   transition: 0.2s;
 }
-.cat:hover {
-  background: #bae6fd;
+
+.social-box:hover {
+  transform: translateY(-3px);
+}
+
+/* ขีดใต้ */
+.bar {
+  height: 6px;
+  background: #9fbad0;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* เส้นแบ่ง */
+.line {
+  height: 2px;
+  background: #9fbad0;
+  margin: 25px 0;
+}
+
+/* example text */
+.example {
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 /* grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  gap: 15px;
+  gap: 20px;
 }
 
-.item {
-  border-radius: 15px;
-  overflow: hidden;
+.card {
+  height: 120px;
+  border-radius: 20px;
+  border: 2px solid #9fbad0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: 0.2s;
 }
 
-.item img {
-  width: 100%;
-  height: 100px;
-  object-fit: cover;
-}
-
-.item:hover {
-  transform: scale(1.05);
-}
-
-/* profile */
+/* ขวา */
 .profile {
   text-align: center;
 }
-.profile img {
-  width: 140px;
+
+.status {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.avatar {
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
-}
-
-/* modal */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  display: none;
-  justify-content: center;
+  border: 2px solid #9fbad0;
+  margin: auto;
+  display: flex;
   align-items: center;
+  justify-content: center;
 }
 
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 15px;
-  width: 300px;
+/* name */
+.name {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 20px;
+  border: 2px solid #9fbad0;
+  font-size: 24px;
 }
 
-.modal-content img {
-  width: 100%;
-  border-radius: 10px;
+/* description */
+.desc {
+  margin-top: 10px;
+  font-size: 14px;
 }
 
+/* order box */
+.order {
+  margin-top: 20px;
+  border-radius: 20px;
+  border: 2px solid #9fbad0;
+  padding: 15px;
+  text-align: left;
+}
 </style>
 </head>
 
@@ -116,82 +149,63 @@ body {
   <!-- ซ้าย -->
   <div>
 
-    <!-- ลิงก์ -->
-    <div class="categories">
-      <a href="https://youtube.com" class="cat">YouTube</a>
-      <a href="https://tiktok.com" class="cat">TikTok</a>
-      <a href="https://discord.com" class="cat">Discord</a>
+    <div class="box header">
+      ใส่รูป (โลโก้)
     </div>
 
-    <!-- portfolio -->
-    <div class="box">
-      <b>Portfolio</b>
-      <div class="grid">
-
-        <div class="item" onclick="openModal('img1.jpg','งานวาด 1','รายละเอียดงาน')">
-          <img src="img1.jpg">
-        </div>
-
-        <div class="item" onclick="openModal('img2.jpg','งานวาด 2','รายละเอียดงาน')">
-          <img src="img2.jpg">
-        </div>
-
-        <div class="item" onclick="openModal('img3.jpg','งานวาด 3','รายละเอียดงาน')">
-          <img src="img3.jpg">
-        </div>
-
-        <div class="item" onclick="openModal('img4.jpg','งานวาด 4','รายละเอียดงาน')">
-          <img src="img4.jpg">
-        </div>
-
-        <div class="item" onclick="openModal('img5.jpg','งานวาด 5','รายละเอียดงาน')">
-          <img src="img5.jpg">
-        </div>
-
-        <div class="item" onclick="openModal('img6.jpg','งานวาด 6','รายละเอียดงาน')">
-          <img src="img6.jpg">
-        </div>
-
+    <div class="social">
+      <div class="social-box">
+        YouTube
+        <div class="bar"></div>
       </div>
+
+      <div class="social-box">
+        TikTok
+        <div class="bar"></div>
+      </div>
+
+      <div class="social-box">
+        Discord
+        <div class="bar"></div>
+      </div>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="example">Example ♡</div>
+
+    <div class="grid">
+      <div class="card">ข้อความ</div>
+      <div class="card">ข้อความ</div>
+      <div class="card">ข้อความ</div>
+      <div class="card">ข้อความ</div>
+      <div class="card">ข้อความ</div>
+      <div class="card">ข้อความ</div>
     </div>
 
   </div>
 
   <!-- ขวา -->
   <div class="box profile">
-    <img src="profile.jpg">
-    <h3>Name</h3>
-    <p>คำอธิบายสั้น ๆ</p>
 
-    <div class="box">
-      <b>วิธีสั่งงาน</b>
+    <div class="status">สถานะ (ข้อความ)</div>
+
+    <div class="avatar">
+      ใส่รูป
+    </div>
+
+    <div class="name">Name</div>
+
+    <div class="desc">คำอธิบาย (แนะนำตัว)</div>
+
+    <div class="order">
+      ♥ วิธีสั่งงาน
       <p>พิมพ์รายละเอียด</p>
     </div>
+
   </div>
 
 </div>
-
-<!-- modal -->
-<div class="modal" id="modal" onclick="closeModal()">
-  <div class="modal-content" onclick="event.stopPropagation()">
-    <img id="modalImg">
-    <h3 id="modalTitle"></h3>
-    <p id="modalDesc"></p>
-  </div>
-</div>
-
-<script>
-function openModal(img, title, desc) {
-  document.getElementById("modal").style.display = "flex";
-  document.getElementById("modalImg").src = img;
-  document.getElementById("modalTitle").innerText = title;
-  document.getElementById("modalDesc").innerText = desc;
-}
-
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-}
-</script>
 
 </body>
 </html>
