@@ -1,61 +1,111 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <title>dexajk6380</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background: linear-gradient(135deg, #0f172a, #020617);
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .card {
-      text-align: center;
-      padding: 30px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      width: 300px;
-    }
-    img {
-      width: 100px;
-      border-radius: 50%;
-      margin-bottom: 10px;
-    }
-    h1 {
-      margin: 10px 0;
-    }
-    a {
-      display: block;
-      margin: 10px 0;
-      padding: 10px;
-      border-radius: 10px;
-      background: #1e293b;
-      color: white;
-      text-decoration: none;
-      transition: 0.2s;
-    }
-    a:hover {
-      background: #334155;
-      transform: scale(1.05);
-    }
-  </style>
+<meta charset="UTF-8">
+<title>My Bio</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: linear-gradient(135deg, #0ea5e9, #020617);
+  color: white;
+}
+
+/* layout */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 40px;
+}
+
+/* left text */
+.left {
+  max-width: 300px;
+}
+
+.left h1 {
+  font-size: 40px;
+  color: #7dd3fc;
+}
+
+.left p {
+  opacity: 0.8;
+}
+
+/* right card */
+.card {
+  background: rgba(255,255,255,0.05);
+  padding: 30px;
+  border-radius: 25px;
+  backdrop-filter: blur(15px);
+  text-align: center;
+  width: 280px;
+}
+
+/* profile */
+.profile {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #38bdf8;
+}
+
+/* search bar */
+.search {
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 20px;
+  background: #0f172a;
+}
+
+/* buttons */
+.btn {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 12px;
+  background: #0ea5e9;
+  color: white;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: #38bdf8;
+  transform: scale(1.05);
+}
+
+</style>
 </head>
+
 <body>
 
-<div class="card">
-  <img src="https://permanent-harlequin-kcqeerofqo.edgeone.app/ไม่มีชื่อ%20167_20260321102354.png">
-  <h1>Novara</h1>
-  <p>CEO | Gamer | Creator</p>
+<div class="container">
 
-  <a href="https://www.instagram.com/g._.1na?igsh=MXI3cW00bThkeGtsYQ%3D%3D&utm_source=qr">Instagram</a>
-  <a href="https://youtube.com/@novaralab?si=J0IGpaL6G2cXfaw3">YouTube</a>
-  <a href="https://discord.gg/WBhpDAmTPU">Discord</a>
+  <!-- ซ้าย -->
+  <div class="left">
+    <h1>Your Name</h1>
+    <p>Bio / คำอธิบายสั้น ๆ</p>
+
+    <p>• รับงาน / ติดต่อ</p>
+    <p>• รายละเอียดเพิ่มเติม</p>
+  </div>
+
+  <!-- ขวา -->
+  <div class="card">
+    <img src="https://via.placeholder.com/150" class="profile">
+
+    <div class="search">yourwebsite.com</div>
+
+    <a href="#" class="btn">Facebook</a>
+    <a href="#" class="btn">Instagram</a>
+    <a href="#" class="btn">Discord</a>
+  </div>
+
 </div>
 
 </body>
